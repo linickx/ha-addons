@@ -1,0 +1,15 @@
+name: "dnsCrypt Proxy"
+description: "My dnscrypt-proxy add-on!"
+version: "2024.06.19"
+slug: "dnscrypt-proxy"
+init: false
+arch:
+  - aarch64
+  - amd64
+  - armhf
+  - armv7
+  - i386
+image: linickx/addon-dnscrypt-proxy-{arch}
+ports:
+  53/tcp: 53
+  53/udp: 53
