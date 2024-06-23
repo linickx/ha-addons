@@ -1,5 +1,5 @@
 name: "dnsCrypt Proxy"
-description: "My dnscrypt-proxy add-on!"
+description: "A basic implementation of dnsCrypt"
 version: "2024.06.19"
 slug: "dnscrypt-proxy"
 init: false
