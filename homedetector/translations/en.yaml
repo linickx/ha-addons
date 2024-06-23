@@ -1,0 +1,44 @@
+---
+configuration:
+  networks:
+    name: Local IoT Networks
+    description: List the Hosts, Ranges, Network (subnets) you wish to monitor DNS.
+  resolvers:
+    name: Upstream DNS Servers
+    description: If left blank, will use default.
+  ha_notify:
+    name: Home Assistant Persistent Notifications
+    description: Send all alerts to the admin notification panel. Default is True.
+  networks_ttl:
+    name: Network Scope TTL (Time To Live)
+    description: How often should the mode of a network be re-validated for blocking or learning. Default is 3600 seconds (1hr)
+  learning_duration:
+    name: Learning Mode Duration
+    description: How long should a network range learn/pass domains before alerting on anomalies. Default is 30 days.
+  ha_webhook_id:
+    name: Webhook ID
+    description: Home Assistant Web Hook ID for upstream automations/alerts/notifications
+  unknown_ip_action:
+    name: Unknown IP (Default) Action
+    description: Action for unlisted networks/ips. Default is ignore. Valid Options => ignore or block.
+  detect_on_host_query:
+    name: Detect on Host Query
+    description: Anomonly detection is by Domain (SOA), this will detect on A/CNAME changes. Default is False
+  soa_failure_action:
+    name: SOA Failure Action
+    description: What to do when SOA lookups fail. Default is ignore. Valid Options => ignore or block.
+  dns_blocking_mode:
+    name: DNS Blocking (FW)
+    description: Block for unusual requests. Default is disabled.
+  custom_host_records:
+    name: Custom DNS Host Reords (A)
+    description: A list of names (with IPs) which by-pass DNS and are returned directly by Home Detector
+  debug:
+    name: Debug Mode
+    description: Toggle on for Debug Logs
+network:
+  10053/tcp: DNS Listener/Local Resolver Port (TCP)
+  10053/udp: DNS Listener/Local Resolver Port (UDP)
+  23/tcp: HoneyPot Telnet Port
+  21/tcp: HoneyPot FTP Port
+  80/tcp: HoneyPot (Fake) WebServer Port
