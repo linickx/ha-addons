@@ -1,5 +1,8 @@
 # Releases
 
+## 2024.06.23
+Testing Releases and Updates.
+
 ## 2024.06.19.1
 Added block list to prevent RFC1918 reverse lookups being sent externally.
 

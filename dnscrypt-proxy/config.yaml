@@ -1,7 +1,7 @@
 name: "dnsCrypt Proxy"
 description: "A basic implementation of dnsCrypt"
 url: https://github.com/linickx/addon-dnscrypt-proxy
-version: "2024.06.19"
+version: "2024.06.23"
 slug: "dnscrypt-proxy"
 init: false
 arch:
