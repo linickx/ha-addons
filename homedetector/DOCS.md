@@ -1,5 +1,9 @@
 # Documentation
 
+## Installation
+
+🚨 Warning: Home Detector is only support on 64bit processors, i.e. x86_64 (`amd64`) or ARM64 (`aarch64`) this is due to modern cryptography libraries (_used by Open Canary_) requiring rust which is not provided in the base python/alpine 32bit docker images. For Raspberry Pi users, that means Pi 4 or newer.
+
 ## Example Automations
 
 ### Delayed Start
