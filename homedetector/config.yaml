@@ -1,0 +1,55 @@
+name: Home Detector
+description: A lightweight intrusion detector.
+url: https://github.com/linickx/HomeDetector
+version: "0.0.1"
+slug: homedetector
+init: false
+arch:
+  - aarch64
+  - amd64
+  - armhf
+  - armv7
+  - i386
+image: linickx/addon-homedetector-{arch}
+startup: application
+map:
+  - addon_config:rw
+  - share:rw
+ports:
+  10053/tcp: 53
+  10053/udp: 53
+  23/tcp: 23
+  21/tcp:
+  80/tcp:
+ingress: true
+ingress_entry: admin
+panel_icon: mdi:home-search-outline
+panel_admin: true
+homeassistant_api: true
+options:
+  networks: []
+  resolvers: []
+  ha_notify: true
+  detect_on_host_query: false
+  dns_blocking_mode: false
+  custom_host_records: []
+  debug: false
+schema:
+  networks:
+    - address: str
+      type: str
+  resolvers:
+    - server: str
+      port: int
+  networks_ttl: "int?"
+  learning_duration: "int?"
+  ha_notify: bool
+  ha_webhook_id: "str?"
+  unknown_ip_action: "str?"
+  detect_on_host_query: bool
+  soa_failure_action: "str?"
+  dns_blocking_mode: bool
+  custom_host_records:
+    - name: str
+      address: str
+  debug: bool
