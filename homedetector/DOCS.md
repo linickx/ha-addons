@@ -1,8 +1,18 @@
 # Documentation
 
+Congrats, you have a home Intrusion Detection System!
+
 ## Installation
 
 🚨 Warning: Home Detector is only support on 64bit processors, i.e. x86_64 (`amd64`) or ARM64 (`aarch64`) this is due to modern cryptography libraries (_used by Open Canary_) requiring rust which is not provided in the base python/alpine 32bit docker images. For Raspberry Pi users, that means Pi 4 or newer.
+
+# DNS Anomaly Detection for IoT
+
+Home Detector implements a DNS server, it's not indent to replace complex solutions like PiHole, but rather complement them. It is **strongly recommended** that you do **not** point Phones/PCs/Laptops at this DNS server, you won't get much benefit. Where **you do benefit** is by configuring your Smart-Home or IoT devices as Home Assistant/Detector as a DNS server.
+
+### What happens when IoT uses Home Assistant/Detector as a DNS server?
+
+By Default, if you update your local DNS to use Home Detectors DNS server, nothing happens, all requests are passed through and resolved. However if you *enable* Anomaly Detection, then Home Detector will start creating a baseline of Domains your IoT/Smart-Home devices talk to. The baseline will be learnt over 30days, and after that learning period will become fixed. Any new Domains observed will generate an alert.
 
 ## Setting up DNS Anomaly Detection
 
@@ -39,6 +49,9 @@ If you need something resolvable, you can avoid it being sent upstream by creati
 - name: homeassistant.internal
   address: 192.168.1.1
 ```
+### Detect on Host Query
+
+Are you a hard-core paranoid security/privacy nerd, oh boy, you're gonna love this! By Default Home Detector will alert on Domain variations, but if you enable this feature it'll start tracking and alerting on the host level. For _nice_ devices, no drama, but if you have an Amazon Alexa prepared to be spammed as that thing connects to a whole bunch of random hosts all the time!
 
 ### DNS Firewall (Blocking)
 
@@ -73,16 +86,34 @@ To manually update a Scope from Learning to Alerting/Blocking:
 
 ___NOTE___: Keyword "block" will _alert_ if DNS firewalling is disabled.
 
+# Open Canary Honeypot
+
+Home Detector is an implementation of Open Canary, currently it's not _configurable_ but you can enable upto 3x different detection mechanisms:
+
+1. Telnet
+2. FTP
+3. Web Server
+
+### What's a Honeypot, and what can it detect?
+
+A honeypot is a security tool that can help computer systems defend against cyber attacks, a target to lure threat actors away from legitimate targets. By default, only the Telnet honeypot is enabled, what this means is, if you connect (telnet) to your home assistant server, instead of getting a CLI like SSH, it'll generate an alert, for **any** username/password combination you type.
+
+### Can I break into Home Assistant via the Honeypot?
+
+Nopes, they're a python process faking a log-in prompt, there's nothing behind them.
+
 ## Honey Pot Setup
 
-By default, Telnet (TCP/23) is enabled.
+By default, Telnet (TCP/23) is enabled. Under the add-on configuration page, scroll to the bottom where the `Network Ports` are, toggle `Show disabled ports` .
 
 * Enable the HTTP Honeypot by Setting a Port -> 80
 * Enable the FTP Honeypot by Setting a Port -> 21
 
-Currently Open Canary cannot be customized.
+After the add-on restarts, if you browse to http://homeassistant.local (_or whatever_) you'll see a fake NAS page, it'll generate an alert, for **any** username/password combination you type.
 
-## Example Automations
+Currently Open Canary cannot be further customized, but I'd like to change that!
+
+# Example Automations
 
 The following automations are [available in the docs](https://github.com/linickx/HomeDetector/tree/main/docs) folder:
 
