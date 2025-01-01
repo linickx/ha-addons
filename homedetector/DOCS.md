@@ -18,19 +18,19 @@ By Default, if you update your local DNS to use Home Detectors DNS server, nothi
 
 By default DNS inspection is disabled, that is DNS requests pass-through without any anomaly detection, you must designate devices you wish to inspect, below is an example for setting __Local IoT Networks__:
 
-```
+```yaml
 - address: 192.168.1.10
   type: host
 - address: 192.168.1.20-192.168.1.25
   type: range
 - address: 192.168.2.0/24
-  type: subnet
+  type: network
 ```
 ### Upstream DNS Servers
 
 By default Home Detector will use Home Assistant DNS server, you can change this like so...
 
-```
+```yaml
 - server: 8.8.8.8
   port: 53
 - server: 1.1.1.1
@@ -38,14 +38,14 @@ By default Home Detector will use Home Assistant DNS server, you can change this
 ```
 If you run _another_ DNS server on Home Assistant, like Pi-hole or DNSguard you need to grab their local name and use that, e.g for [my DNSCrypt addon](https://github.com/linickx/addon-dnscrypt-proxy)
 
-```
+```yaml
 - server: ba53f40c-dnscrypt-proxy
   port: 53
 ```
 ### Custom DNS Host Records (A)
 
 If you need something resolvable, you can avoid it being sent upstream by creating custom A records:
-```
+```yaml
 - name: homeassistant.internal
   address: 192.168.1.1
 ```
