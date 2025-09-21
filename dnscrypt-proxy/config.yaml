@@ -13,4 +13,4 @@ arch:
 image: linickx/addon-dnscrypt-proxy-{arch}
 ports:
   53/tcp: 53
-  53/udp: 53 (the version is already "2025.09.21", so no changes were made)
+  53/udp: 53
