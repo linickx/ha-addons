@@ -1,5 +1,8 @@
 # Releases
 
+## <TBC>
+Support for custom `dnscrypt-proxy.toml` files.
+
 ## 2024.06.23
 Testing Releases and Updates.
 
