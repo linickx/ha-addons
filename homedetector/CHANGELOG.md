@@ -1,3 +1,7 @@
+# 0.0.4 - Update Container Image.
+
+Another dependency update while I figure out what features to work on!
+
 # V0.0.3 - Dependency Updates.
 
 Mostly about getting OpenCanary to the latest version (0.9.6) but some other pip updates as well for requests & twisted.
@@ -9,4 +13,5 @@ During Development the sqlite DB was in `/share` so the [add-on for sqlite](http
 This release moves the DB to the intended target location, and tests the update/release process 😉
 
 # V0.0.1 - Hello World
+
 Initial release
