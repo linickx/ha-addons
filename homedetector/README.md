@@ -26,3 +26,7 @@ Here are some of the things you can do in the config, an admin web page is provi
 * Tune learning to suit your needs, default 30 days DNS observation
 * Inject Custom DNS A responses
 * Custom upstream DNS resolvers
+
+## 🛠️ Source 🛠️
+
+* https://github.com/linickx/HomeDetector
