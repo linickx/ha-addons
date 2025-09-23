@@ -1,3 +1,9 @@
+# 0.0.5 - Support for custom `opencanary.conf`
+
+The `opencanary.conf` file is now stored in the `/addon_configs/`, see https://opencanary.readthedocs.io for details on what you can do.
+
+Note: Services available will be limited by Port Forwarding configuration in Home Assistant.
+
 # 0.0.4 - Update Container Image.
 
 Another dependency update while I figure out what features to work on!
