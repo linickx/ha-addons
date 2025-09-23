@@ -113,7 +113,7 @@ After the add-on restarts, if you browse to http://homeassistant.local (_or what
 
 ## Advanced Configuration
 
-As of version 0.0.5, the `opencanary.conf` file is now stored in the `/addon_configs/`, see https://opencanary.readthedocs.io for details on what you can do.
+As of version 0.0.5, the `opencanary.conf` file is now stored in the `/addon_configs/ba53f40c_homedetector/`, see https://opencanary.readthedocs.io for details on what you can do.
 
 Note: Services available will be limited by Port Forwarding configuration in Home Assistant.
 
