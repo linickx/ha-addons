@@ -100,7 +100,7 @@ A honeypot is a security tool that can help computer systems defend against cybe
 
 ### Can I break into Home Assistant via the Honeypot?
 
-Nopes, they're a python process faking a log-in prompt, there's nothing behind them.
+Nope! The open ports are a python process faking a log-in prompt, there's nothing behind them.
 
 ## Honey Pot Setup
 
@@ -111,7 +111,34 @@ By default, Telnet (TCP/23) is enabled. Under the add-on configuration page, scr
 
 After the add-on restarts, if you browse to http://homeassistant.local (_or whatever_) you'll see a fake NAS page, it'll generate an alert, for **any** username/password combination you type.
 
-Currently Open Canary cannot be further customized, but I'd like to change that!
+## Advanced Configuration
+
+As of version 0.0.5, the `opencanary.conf` file is now stored in the `/addon_configs/`, see https://opencanary.readthedocs.io for details on what you can do.
+
+Note: Services available will be limited by Port Forwarding configuration in Home Assistant.
+
+## Ignoring Hosts/IPs that hit the Honey Pot
+
+OpenCanary supports [pattern matching for ignoring Alerts](https://opencanary.readthedocs.io/en/latest/alerts/webhook.html#advanced-ignore).
+
+Alerts from OpenCanary are sent to Home Assistant via a localhost WebHook, therefore to ignore events from `192.168.1.1` update the **existing**  so that it looks like this:
+
+```json
+"Webhook": {
+    "class": "opencanary.logger.WebhookHandler",
+    "url": "http://localhost:8099/notify",
+    "method": "POST",
+    "headers": {
+        "Content-Type": "application/json"
+    },
+    "data": {
+        "message": "%(message)s",
+        "type": "opencanary"
+        },
+    "status_code": 200,
+    "ignore": ["192.168.1.1"]
+}
+```
 
 # Example Automations
 
