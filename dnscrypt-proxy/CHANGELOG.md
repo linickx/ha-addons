@@ -1,5 +1,17 @@
 # Releases
 
+## 2025.10.15
+Automated Rebuild triggered by [2025.10.0](https://github.com/home-assistant/docker-base/releases/tag/2025.10.0)
+
+Upstream Release Notes (only Alpine applies):
+```What’s Changed
+Update Python to 3.12.12 (#318) @cdce8p
+Update Bashio to v0.17.5 (#319) @sairon
+Add Python 3.14 + drop Python 3.11 + update 3.13 (#306) @cdce8p
+Use yaml anchors for workflow (#316) @cdce8p
+Bump home-assistant/builder from 2025.03.0 to 2025.09.0 (#317) @dependabot[bot]
+Update Bashio to v0.17.2 (#315) @sairon```
+
 ## 2025.09.23
 Support for custom `dnscrypt-proxy.toml` files.
 
