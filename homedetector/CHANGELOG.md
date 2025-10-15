@@ -1,3 +1,20 @@
+# 0.0.6 - 2025.10.15
+
+* Automated Update: 0.0.6 - 2025.10.15
+* Triggered by Upstream Release: https://github.com/home-assistant/docker-base/releases/tag/2025.10.0
+
+Upstream Release Notes (Only Alpine Applies):
+
+```
+What’s Changed
+Update Python to 3.12.12 (#318) @cdce8p
+Update Bashio to v0.17.5 (#319) @sairon
+Add Python 3.14 + drop Python 3.11 + update 3.13 (#306) @cdce8p
+Use yaml anchors for workflow (#316) @cdce8p
+Bump home-assistant/builder from 2025.03.0 to 2025.09.0 (#317) @dependabot[bot]
+Update Bashio to v0.17.2 (#315) @sairon
+```
+
 # 0.0.5 - Support for custom `opencanary.conf`
 
 The `opencanary.conf` file is now stored in the `/addon_configs/`, see https://opencanary.readthedocs.io for details on what you can do.
