@@ -1,5 +1,12 @@
 # Releases
 
+## 2025.10.16
+Automated Rebuild triggered by [2025.10.1](https://github.com/home-assistant/docker-base/releases/tag/2025.10.1)
+
+Upstream Release Notes (only Alpine applies):
+```What’s Changed
+Update Python to 3.13.9 (#320) @cdce8p```
+
 ## 2025.10.15
 Automated Rebuild triggered by [2025.10.0](https://github.com/home-assistant/docker-base/releases/tag/2025.10.0)
 
