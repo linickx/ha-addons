@@ -15,4 +15,4 @@ ports:
   53/udp: 53
 slug: dnscrypt-proxy
 url: https://github.com/linickx/addon-dnscrypt-proxy
-version: 2025.10.16
+version: 2025.11.13
