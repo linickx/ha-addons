@@ -1,5 +1,16 @@
 # Releases
 
+## 2025.11.13
+Automated Rebuild triggered by [2025.11.0](https://github.com/home-assistant/docker-base/releases/tag/2025.11.0)
+
+Upstream Release Notes (only Alpine applies):
+
+```
+What’s Changed
+Drop Alpine 3.19 builds (#322) @sairon
+Reduce number of layers and optimize build of the base-python images (#321) @sairon
+```
+
 ## 2025.10.16
 Automated Rebuild triggered by [2025.10.1](https://github.com/home-assistant/docker-base/releases/tag/2025.10.1)
 
