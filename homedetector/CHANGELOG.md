@@ -1,3 +1,16 @@
+# 0.0.9 - 2025.11.21
+
+Automated Rebuild triggered by [2025.11.1](https://github.com/home-assistant/docker-base/releases/tag/2025.11.1)
+
+Upstream Release Notes (only Alpine applies):
+
+```
+What’s Changed
+Add release-suffixed tags to Docker images for version pinning (#326) @sairon
+Delete the Python archive signature file after validation (#325) @agners
+Update pip to v25.3 (#323) @sairon
+```
+
 # 0.0.8 - 2025.11.13
 
 Automated Rebuild triggered by [2025.11.0](https://github.com/home-assistant/docker-base/releases/tag/2025.11.0)
