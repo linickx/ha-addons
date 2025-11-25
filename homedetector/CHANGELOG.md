@@ -1,3 +1,17 @@
+# 0.0.10 - 2025.11.25
+
+Automated Rebuild triggered by [2025.11.2](https://github.com/home-assistant/docker-base/releases/tag/2025.11.2)
+
+Upstream Release Notes (only Alpine applies):
+
+```
+What’s Changed
+Bump actions/checkout from 5.0.0 to 6.0.0 (#329) @dependabot[bot]
+Add reusable builder workflow (#328) @cdce8p
+Tag Python 3.14-alpine3.22 images with the latest tag (#327) @sairon
+Drop deprecated architectures, build aarch64 on ARM runners (#324) @sairon
+```
+
 # 0.0.9 - 2025.11.21
 
 Automated Rebuild triggered by [2025.11.1](https://github.com/home-assistant/docker-base/releases/tag/2025.11.1)
