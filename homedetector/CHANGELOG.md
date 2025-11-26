@@ -1,3 +1,15 @@
+# 0.0.11 - 2025.11.26
+
+Automated Rebuild triggered by [2025.11.3](https://github.com/home-assistant/docker-base/releases/tag/2025.11.3)
+
+Upstream Release Notes (only Alpine applies):
+
+```
+What’s Changed
+Fix tagging of latest images (#332) @sairon
+Fix incorrect version-suffixed tags of Python images (#331) @sairon
+```
+
 # 0.0.10 - 2025.11.25
 
 Automated Rebuild triggered by [2025.11.2](https://github.com/home-assistant/docker-base/releases/tag/2025.11.2)
