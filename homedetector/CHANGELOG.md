@@ -1,3 +1,17 @@
+# 0.0.12 - 2025.12.08
+
+Automated Rebuild triggered by [2025.12.0](https://github.com/home-assistant/docker-base/releases/tag/2025.12.0)
+
+Upstream Release Notes (only Alpine applies):
+
+```
+What’s Changed
+Update Python to 3.13.11 and 3.14.2 (#337) @cdce8p
+Bump actions/checkout from 6.0.0 to 6.0.1 (#336) @dependabot[bot]
+Bump home-assistant/builder from 2025.09.0 to 2025.11.0 (#334) @dependabot[bot]
+Drop obsolete QEMU_CPU build argument (#333) @sairon
+```
+
 # 0.0.11 - 2025.11.26
 
 Automated Rebuild triggered by [2025.11.3](https://github.com/home-assistant/docker-base/releases/tag/2025.11.3)
