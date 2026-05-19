@@ -1,3 +1,17 @@
+# 0.0.13 - 2026.05.19
+
+Automated Rebuild triggered by [2026.04.0](https://github.com/home-assistant/docker-base/releases/tag/2026.04.0)
+
+Upstream Release Notes (only Alpine applies):
+
+```
+What’s Changed
+Flatten base images, modernize the build (#358) @sairon
+Update Python in base-python to 3.13.13/3.14.4 (#357) @sairon
+Bump release-drafter/release-drafter from 7.1.1 to 7.2.0 (#359) @dependabot[bot]
+Bump release-drafter/release-drafter from 7.0.0 to 7.1.1 (#355) @dependabot[bot]
+```
+
 # 0.0.12 - 2025.12.08
 
 Automated Rebuild triggered by [2025.12.0](https://github.com/home-assistant/docker-base/releases/tag/2025.12.0)
