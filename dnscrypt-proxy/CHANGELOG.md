@@ -1,5 +1,19 @@
 # Releases
 
+## 2026.05.20
+Automated Rebuild triggered by [2026.05.0](https://github.com/home-assistant/docker-base/releases/tag/2026.05.0)
+
+Upstream Release Notes (only Alpine applies):
+
+```
+What’s Changed
+Update Python in base-python to 3.14.5 (#364) @sairon
+distro: alpine: consolidate EXTRA_INDEX_URL (#361) @eshattow
+Repository fork friendly distro Dockerfile updates (#360) @eshattow
+Bump release-drafter/release-drafter from 7.2.1 to 7.3.0 (#363) @dependabot[bot]
+Bump release-drafter/release-drafter from 7.2.0 to 7.2.1 (#362) @dependabot[bot]
+```
+
 ## 2026.05.19
 Automated Rebuild triggered by [2026.04.0](https://github.com/home-assistant/docker-base/releases/tag/2026.04.0)
 
