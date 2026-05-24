@@ -2,7 +2,7 @@ arch:
 - aarch64
 - amd64
 description: A basic implementation of dnsCrypt
-image: linickx/addon-dnscrypt-proxy-{arch}
+image: docker.io/linickx/addon-dnscrypt-proxy
 init: false
 map:
 - addon_config:rw
@@ -12,4 +12,4 @@ ports:
   53/udp: 53
 slug: dnscrypt-proxy
 url: https://github.com/linickx/addon-dnscrypt-proxy
-version: 2026.05.20
+version: 2026.05.24
