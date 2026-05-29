@@ -1,0 +1,155 @@
+#include <tunables/global>
+
+profile dnscrypt-proxy flags=(attach_disconnected,mediate_deleted) {
+  #include <abstractions/base>
+  #include <abstractions/nameservice>
+
+  # Capabilities: only net_bind_service to allow listening on port 53
+  capability net_bind_service,
+
+  # Deny dangerous capabilities
+  deny capability dac_read_search,
+  deny capability setfcap,
+  deny capability setpcap,
+  deny capability sys_admin,
+  deny capability sys_chroot,
+  deny capability sys_ptrace,
+
+  # Capabilities for file, signal, and network operations
+  file,
+  signal (send) set=(kill,term,int,hup,cont),
+  network inet dgram,
+  network inet stream,
+  network unix dgram,
+  network unix stream,
+
+  # Additional capabilities that dnscrypt-proxy may need
+  capability sys_resource,
+
+  # S6-Overlay (standard for Home Assistant addons)
+  /init ix,
+  /bin/** ix,
+  /usr/bin/** ix,
+  /run/{s6,s6-rc*,service}/** ix,
+  /package/** ix,
+  /command/** ix,
+  /etc/services.d/** rwix,
+  /etc/cont-init.d/** rwix,
+  /etc/cont-finish.d/** rwix,
+  /run/{,**} rwk,
+  /dev/tty rw,
+
+  # Bashio
+  /usr/lib/bashio/** ix,
+  /tmp/** rwk,
+
+  # Configuration and data access
+  /config/ rw,
+  /config/dnscrypt-proxy.toml rw,
+  /config/*.txt rw,
+  /data/** rw,
+
+  # Device access for dnscrypt-proxy runtime
+  /dev/urandom r,
+  /dev/random r,
+  /dev/zero r,
+  /dev/null rw,
+  /dev/stdout rw,
+  /dev/stderr rw,
+  /dev/tty rw,
+
+  # System configuration and runtime files
+  /etc/dnscrypt-proxy/ r,
+  /etc/dnscrypt-proxy/** r,
+  /etc/inittab r,
+  /etc/ld.so.cache r,
+  /etc/ld.so.conf r,
+  /etc/ld.so.conf.d/ r,
+  /etc/ld.so.conf.d/** r,
+  /etc/passwd r,
+  /etc/group r,
+  /etc/ssl/certs/ r,
+  /etc/ssl/certs/** r,
+  /usr/share/zoneinfo/ r,
+  /usr/share/zoneinfo/** r,
+
+  # Cache directory for dnscrypt-proxy
+  /var/cache/ rw,
+  /var/cache/dnscrypt-proxy/ rw,
+  /var/cache/dnscrypt-proxy/** rw,
+
+  @{PROC}/ r,
+  @{PROC}/** r,
+  /sys/ r,
+  /sys/** r,
+
+  # Network sysctls access
+  /proc/sys/net/ r,
+  /proc/sys/net/** r,
+
+  # Deny ptrace and unix abstract socket operations
+  deny ptrace,
+  deny unix type=stream addr="@*",
+
+  # Service profile for dnscrypt-proxy
+  /usr/bin/dnscrypt-proxy cx -> dnscrypt-proxy,
+
+  profile dnscrypt-proxy flags=(attach_disconnected,mediate_deleted) {
+    #include <abstractions/base>
+    #include <abstractions/nameservice>
+
+    # Receive signals from S6-Overlay
+    signal (receive) peer=*_dnscrypt-proxy,
+
+    # Capabilities for DNS service
+    capability net_bind_service,
+    capability sys_resource,
+    capability dac_override, # I know this is not great but /var/cache breaks without it -- sugestions are welcomed!
+
+    # Network socket operations for DNS
+    network inet dgram,
+    network inet stream,
+    network unix dgram,
+    network unix stream,
+
+    # DNS proxy requirements
+    /usr/bin/dnscrypt-proxy rm,
+    /etc/dnscrypt-proxy/ r,
+    /etc/dnscrypt-proxy/** r,
+    /etc/inittab r,
+    /etc/ld.so.cache r,
+    /etc/ld.so.conf r,
+    /etc/ld.so.conf.d/ r,
+    /etc/ld.so.conf.d/** r,
+    /etc/passwd r,
+    /etc/group r,
+    /etc/ssl/certs/ r,
+    /etc/ssl/certs/** r,
+    /dev/urandom r,
+    /dev/random r,
+    /dev/zero r,
+    /dev/null rw,
+    /dev/stdout rw,
+    /dev/stderr rw,
+    /tmp/** rwk,
+
+    # Cache directory for dnscrypt-proxy (resolver lists, signatures)
+    /var/cache/ rw,
+    /var/cache/dnscrypt-proxy/ rw,
+    /var/cache/dnscrypt-proxy/** rw,
+
+    # Config directory (including blocklists)
+    /config/ r,
+    /config/*.toml r,
+    /config/*.txt r,
+    /data/** rw,
+
+    # Process information and network settings
+    @{PROC}/ r,
+    @{PROC}/** r,
+    /sys/ r,
+    /sys/** r,
+    /proc/sys/net/ r,
+    /proc/sys/net/** r,
+  }
+}

@@ -1,7 +1,9 @@
 # Releases
 
-## 2026.05.24
+## 2026.05.29
+Adding [AppArmor](https://developers.home-assistant.io/docs/apps/presentation/#apparmor) to the container and increasing it's security score 😎
 
+## 2026.05.24
 Workflow (GitHub Actions) updates, triggered by [upstream changes to container builds]( https://developers.home-assistant.io/blog/2026/04/02/builder-migration/). ~Addons~ Apps are now multi-architecture, this change is mostly about notifying HomeAssistant installs so they know where to find updates.
 
 Since I was already here, I added SBOMS -- Software Bill of Materials -- to the flow, see the release artifacts.
