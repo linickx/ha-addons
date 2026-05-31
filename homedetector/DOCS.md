@@ -57,6 +57,8 @@ Are you a hard-core paranoid security/privacy nerd, oh boy, you're gonna love th
 
 By default **nothing is blocked**. If you wish to enable DNS Blocking, toggle this to on.
 
+> 👉🏼 This will change in future versions - blocking will soon be the default.
+
 ### Unknown IP Action
 
 By default, only _configured_ IPs are subject to inspection. You can enable it for _all_ with this toggle, however *IMPORTANT NOTE* laptops/phone are incredibly noisy, as soon as 30days (learning mode) is up, an alert will be created for every new site visited, you probably don't want that ;)
@@ -68,23 +70,30 @@ Anomaly detection works by recording all the DNS requests for a fixed period of 
 * Learning Mode Duration -> Default 30days -> How long to create the baseline
 * Network Scope TTL -> How often the Source IP should be re-validated to check it's learning status
 
-### Manually Changing the status of a Domain (Query)
+### Default Behaviours
 
-To manually update a Scope from Learning to Alerting/Blocking:
+* During leaning mode, domains and queires are added to the database, they are allowed an no alerts are generated.
+* After learning mode, any new domain (or query, if enabled), will be blocked and an alert is generated.
 
-1. Open the [Home Detector Dashboard](https://my.home-assistant.io/redirect/supervisor_ingress/?addon=ba53f40c_homedetector) select `DNS`
-2. Click "pass" and change to "block"
+### Manually Changing the status of a Network/Host *scope*
 
-___NOTE___: Keyword "block" will _alert_ if DNS firewalling is disabled.
-
-### Manually Changing the status of a scope
-
-To manually update a Scope from Learning to Alerting/Blocking:
+To manually update a Scope to toggle between Learning and Blocking
 
 1. Open the [Home Detector Dashboard](https://my.home-assistant.io/redirect/supervisor_ingress/?addon=ba53f40c_homedetector) select `Tuning`
-2. Click "learning" and change to "block"
+2. Toggle the `block` from Off to On
 
-___NOTE___: Keyword "block" will _alert_ if DNS firewalling is disabled.
+___NOTE___: "block" only block if DNS firewalling is enabled.
+
+### Manually Changing the status of a Domain (Query)
+
+To manually update a query, i.e. to allow or block
+
+1. Open the [Home Detector Dashboard](https://my.home-assistant.io/redirect/supervisor_ingress/?addon=ba53f40c_homedetector) select `DNS`
+2. Toggle the `block` from Off to On for Blocking
+3. Toggle the `alert` from Off to On for Alerting
+
+___NOTE___: "block" only block if DNS firewalling is enabled.
+
 
 # Open Canary Honeypot
 

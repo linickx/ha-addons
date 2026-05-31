@@ -1,3 +1,50 @@
+# 0.1.0 - UX Upgrades & more!
+
+This release contains the user experience updates I have been wanting to implement for a long time!
+
+> 👉🏼 BACKUP before proceeding!
+> This version performs a database update, I recommend you manually take a copy of `/addon_configs/ba53f40c_homedetector/hd.db` before updating as well as using Home Assistant's own backup utils.
+
+## UX: Alert Management
+
+The alerts page now has the buttons you would expect; alerts are unread by default they can be toggle between read/unread, there is a button to delete them as well! My Home Assistant has circa 300 alerts, now I can clean it up and so can you.
+
+## UX: Separate Alert & Block Toggles
+
+For both domains and queries the logic for Alerting and Blocking has now been separated.
+
+To avoid breaking anyone's setup, any domain/query record currently set to pass, will be migrated to "Allow without Alert". When a new domain/query is detect, the existing behaviour of "Block and Alert" is maintained, as before no _actual_ blocking happens unless `DNS Firewalling` is enabled: 👉🏼 **This will change in future versions - blocking will soon be the default.**
+
+This change allows for 2x new situations which can be found under `Tuning`:
+
+### Ignored DNS Blocks
+
+For situations where you have decided to block something, but you don't want to be alerted every time it is called, you can set a domain/query is a toggle of block=on and alert=off, when your DB has circa 300 rows it can be hard to find these, thus this page surfaces them for you so you can change your mind.
+
+### Alerting DNS Pass
+
+For situations where blocking breaks something important, but you still wish to know when it is called -- perhaps troubleshooting something. Similar to the above, this allows you to surface these when your DB starts to grow above a few pages.
+
+## UX: Fixed broken Config Button
+
+Addon's have been renamed to Apps -> https://github.com/home-assistant/architecture/discussions/1287
+
+With this change, the `Config` button in Home Detector started to return an 404 page not found, this has been fixed.
+
+## Bonus: `Apparmor.txt` 
+
+Not UX related, but something I wanted to do: the container now includes an [Apparmor](https://developers.home-assistant.io/docs/apps/presentation/#apparmor) file, this boosts Home Detector's security rating to 8 -- This looks to be the highest available currently.
+
+## Bonus: Build using Base `2026.05.20`
+
+This image is running the [latest base - 2026.05.20](https://github.com/home-assistant/docker-base/releases/tag/2026.05.0)
+
+## Bonus: Updated Multi-Arch Builds
+
+Workflow (GitHub Actions) updates, triggered by [upstream changes to container builds](https://developers.home-assistant.io/blog/2026/04/02/builder-migration/). ~~Addons~~ Apps are now multi-architecture, this change is mostly about notifying HomeAssistant installs so they know where to find updates.
+
+Since I was already here, I added SBOMS -- Software Bill of Materials -- to the flow, see the release artefacts.
+
 # 0.0.13 - 2026.05.19
 
 Automated Rebuild triggered by [2026.04.0](https://github.com/home-assistant/docker-base/releases/tag/2026.04.0)

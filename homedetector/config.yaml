@@ -3,7 +3,7 @@ arch:
 - amd64
 description: A lightweight intrusion detector.
 homeassistant_api: true
-image: linickx/addon-homedetector-{arch}
+image: linickx/addon-homedetector
 ingress: true
 ingress_entry: admin
 init: false
@@ -56,4 +56,4 @@ schema:
 slug: homedetector
 startup: application
 url: https://github.com/linickx/HomeDetector
-version: 0.0.13
+version: 0.1.0
