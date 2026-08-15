@@ -1,5 +1,17 @@
 # Releases
 
+## 2026.08.15
+Automated Rebuild triggered by [2026.06.1](https://github.com/home-assistant/docker-base/releases/tag/2026.06.1)
+
+Upstream Release Notes (only Alpine applies):
+
+```
+What’s Changed
+Use 3.24 in default version ARG for Alpine base (#374) @sairon
+Add Ubuntu 26.04 and mark it latest (#373) @sairon
+Drop Alpine 3.21, add 3.24 Python variant, use 3.24 as latest (#372) @sairon
+```
+
 ## 2026.05.29
 Adding [AppArmor](https://developers.home-assistant.io/docs/apps/presentation/#apparmor) to the container and increasing it's security score 😎
 
