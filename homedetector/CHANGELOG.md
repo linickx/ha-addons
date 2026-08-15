@@ -1,3 +1,8 @@
+# 0.1.2 - OpenCanary 0.9.9
+
+- Update OpenCanary 👉🏻https://github.com/thinkst/opencanary/releases/tag/v0.9.9
+- Update base image 👉🏻https://github.com/home-assistant/docker-base/releases/tag/2026.06.1
+
 # 0.1.1 - 2026.06.14
 
 Automated Rebuild triggered by [2026.05.0](https://github.com/home-assistant/docker-base/releases/tag/2026.05.0)
