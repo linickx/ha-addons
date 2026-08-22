@@ -1,3 +1,28 @@
+# 0.1.3 - 2026.08.22
+
+Automated Rebuild triggered by [2026.08.0](https://github.com/home-assistant/docker-base/releases/tag/2026.08.0)
+
+Upstream Release Notes (only Alpine applies):
+
+```
+What’s Changed
+Update Python in base-python to 3.12.14 (#391) @sairon
+Update Python in base-python to 3.13.15/3.14.7 (#388) @sairon
+Add statement of Debian release support to README (#389) @eshattow
+Add statement of Ubuntu release support to README (#390) @eshattow
+Bump bundled tempio from 2026.05.0 to 2026.07.0 (Go 1.25 → Go 1.26) (#385) @eshattow
+Bump bundled tempio from 2024.11.2 to 2026.05.0 (Go 1.23.3 → 1.25) (#375) @owine
+Add the Open Home Foundation AI Policy (#384) @frenck
+python: 3.14: drop -fno-builtin malloc/calloc/realloc/free CFLAGS (#381) @agners, @claude
+Update s6-overlay to 3.2.3.0 (#379) @agners
+Bump release-drafter/release-drafter from 7.6.0 to 7.7.0 (#387) @dependabot[bot]
+Bump actions/checkout from 7.0.0 to 7.0.1 (#386) @dependabot[bot]
+Bump release-drafter/release-drafter from 7.5.1 to 7.6.0 (#383) @dependabot[bot]
+Bump release-drafter/release-drafter from 7.4.0 to 7.5.1 (#378) @dependabot[bot]
+Bump release-drafter/release-drafter from 7.3.1 to 7.4.0 (#376) @dependabot[bot]
+Bump actions/checkout from 6.0.3 to 7.0.0 (#377) @dependabot[bot]
+```
+
 # 0.1.2 - OpenCanary 0.9.9
 
 - Update OpenCanary 👉🏻https://github.com/thinkst/opencanary/releases/tag/v0.9.9
